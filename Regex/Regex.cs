@@ -85,6 +85,26 @@ namespace RegularExpression00
             }
 
         }
+        //This method for validation password
+        public static void PasswordValid()
+        {
+            //taking input password from user
+            Console.Write("Enter Password : ");
+            string name = Console.ReadLine();
+            //Regular expression of password
+            string password = "^[a-zA-Z]{8}$";
+            Regex regex = new Regex(password);
+
+            if (regex.IsMatch(name))
+            {
+                Console.WriteLine("Password is valid");
+            }
+            else
+            {
+                Console.WriteLine("Password Is Invalid,Please Enter Valid Email Id.");
+            }
+
+        }
     }
     
 }

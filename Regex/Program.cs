@@ -8,8 +8,8 @@ namespace RegularExpression00
         {
             Console.WriteLine("Welcome to Regular Expression Program");
             Console.WriteLine();
-            //Calling MobileNumValid method
-            RegularExpression.MobileNumValid();
+            //Calling PasswordValid method
+            RegularExpression.PasswordValid();
 
             Console.ReadLine();
 
