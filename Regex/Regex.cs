@@ -10,7 +10,7 @@ namespace RegularExpression00
     public class RegularExpression
     {
         //This method for matching pattern of first name
-        public static void FirstName(string name)
+        public static void FirstNameValid(string name)
         {
             //Regular expression for first letter is capital and maximum charactor is 3
             string firstname = "^[A-Z]{1}[a-zA-Z]{2}$";
@@ -24,8 +24,26 @@ namespace RegularExpression00
             //else condition for if condition is false then else block will execute
             else
             {
-                Console.WriteLine(name + " is invalid. Please Enter First name start with capital letter and maximum 3 charactors");
+                Console.WriteLine(name + " is invalid first name. Please start with capital letter and only take maximum 3 charactors");
+            }
+        }
+        //This method for validate last name
+        public static void LastNameNameValid(string name)
+        {
+            //Regular expression for first letter is capital and maximum charactor is 3
+            string firstname = "^[A-Z]{1}[a-zA-Z]{2}$";
+            Regex regex = new Regex(firstname);
+            //if condition for matching pattern
+            if (regex.IsMatch(name))
+            {
+                Console.WriteLine(name + " is valid name");
+            }
+            //else condition for if condition is false then else block will execute
+            else
+            {
+                Console.WriteLine(name + " is invalid last name. Please start with capital letter and take maximums 3 charactors");
             }
         }
     }
+    
 }
