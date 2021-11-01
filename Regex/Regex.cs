@@ -44,6 +44,25 @@ namespace RegularExpression00
                 Console.WriteLine(name + " is invalid last name. Please start with capital letter and take maximums 3 charactors");
             }
         }
+        //This method for validation of email id
+        public static void EmailValid()
+        {
+            Console.Write("Email id : ");
+            string name = Console.ReadLine();
+
+            string emailid = "^[a-z]{3}[.][a-z]*[@]{1}[bl]{2}[.]{1}[co]{2}[.]{1}[a-z]*$";
+            Regex regex = new Regex(emailid);
+
+            if (regex.IsMatch(name))
+            {
+                Console.WriteLine("Email Id is valid");
+            }
+            else
+            {
+                Console.WriteLine("Email Is Invalid,Please Enter Valid email Id");
+            }
+
+        }
     }
     
 }
