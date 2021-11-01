@@ -95,7 +95,8 @@ namespace RegularExpression00
             //Rule 1 : minimum 8 charactors
             //Rule 2 : atleast 1 uppercase
             //Rule 3 : atleast 1 numeric number
-            string password = "^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$";
+            //Rule 4 : ataleast 1 special charactor
+            string password = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&*])[a-zA-Z0-9!@#$%&*]{8,}$";
             Regex regex = new Regex(password);
 
             if (regex.IsMatch(name))
@@ -104,7 +105,7 @@ namespace RegularExpression00
             }
             else
             {
-                Console.WriteLine("Password Is Invalid,Please Enter Valid Email Id.");
+                Console.WriteLine("Password Is Invalid,Please Enter Valid Password.");
             }
 
         }
