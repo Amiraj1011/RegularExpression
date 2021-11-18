@@ -2,92 +2,123 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
-namespace RegularExpression00
+namespace UserRegistrationException
 {
-    public class RegularExpression
+    public class UserException
     {
-        //This method for matching pattern of first name
-        public static string FirstNameValid(string name)
+        //declaring instance variable
+        public string message;
+
+        public UserException(string message)
         {
-            //Regular expression for first letter is capital and maximum charactor is 3
+            this.message = message;
+        }
+        /// <summary>
+        /// Valids the first name.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="UserRegistrationException.CustomException">invalid</exception>
+        public string ValidFirstName()
+        {
             string firstname = "^[A-Z]{1}[a-zA-Z]{2}$";
             Regex regex = new Regex(firstname);
-            //if condition for matching pattern
-            //if condition is true then if block will execute
-            if (regex.IsMatch(name))
+            try
             {
-                //Console.WriteLine(name + " is valid name");
-                return "valid";
+                //if condition for matching pattern
+                //if condition is true then if block will execute
+                if (regex.IsMatch(message))
+                {
+                    return "valid";
+                }
+                //else condition for if condition is false then else block will execute
+                else
+                {
+                    return "invalid";
+                }
             }
-            //else condition for if condition is false then else block will execute
-            else
+            catch (ArgumentNullException ex)
             {
-                //Console.WriteLine(name + " is invalid first name. Please start with capital letter and only take maximum 3 charactors");
-                return "invalid";
+                throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
             }
+
         }
-        //This method for validate last name
-        public static string LastNameNameValid(string name)
+        public string ValidLastName()
         {
-            //Regular expression for first letter is capital and maximum charactor is 3
-            string firstname = "^[A-Z]{1}[a-zA-Z]{2}$";
-            Regex regex = new Regex(firstname);
-            //if condition for matching pattern
-            if (regex.IsMatch(name))
+            string lastname = "^[A-Z]{1}[a-zA-Z]{2}$";
+            Regex regex = new Regex(lastname);
+            try
             {
-                //Console.WriteLine(name + " is valid name");
-                return "valid";
+                //if condition for matching pattern
+                //if condition is true then if block will execute
+                if (regex.IsMatch(message))
+                {
+                    return "valid";
+                }
+                //else condition for if condition is false then else block will execute
+                else
+                {
+                    return "invalid";
+                }
             }
-            //else condition for if condition is false then else block will execute
-            else
+            catch (ArgumentNullException ex)
             {
-                //Console.WriteLine(name + " is invalid last name. Please start with capital letter and take maximums 3 charactors");
-                return "invalid";
+                throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
             }
+
         }
-        public static string EmailValid(string name)
+        public string EmailIdValid()
         {
-            //Regular expression of email id
             string emailid = "^[a-z]{3}[.][a-z]*[@]{1}[bl]{2}[.]{1}[co]{2}[.]{1}[a-z]*$";
             Regex regex = new Regex(emailid);
-
-            if (regex.IsMatch(name))
+            try
             {
-                //Console.WriteLine("Email Id is valid");
-                return "valid";
+                //if condition for matching pattern
+                //if condition is true then if block will execute
+                if (regex.IsMatch(message))
+                {
+                    return "valid";
+                }
+                //else condition for if condition is false then else block will execute
+                else
+                {
+                    return "invalid";
+                }
             }
-            else
+            catch (ArgumentNullException ex)
             {
-                //Console.WriteLine("Email Is Invalid,Please Enter Valid Email Id.");
-                return "invalid";
+                throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
             }
-
         }
-        //This method for validation of mobile number
-        public static string MobileNumValid(string num)
+        public string MobileNumValid()
         {
             //Regular expression of mobile number
             string number = "^[0-9]{1,2}[ ]{1}[0-9]{10}$";
             Regex regex = new Regex(number);
-
-            if (regex.IsMatch(num))
+            try
             {
-                //Console.WriteLine("Mobile Number is valid");
-                return "valid";
+                //if condition for matching pattern
+                //if condition is true then if block will execute
+                if (regex.IsMatch(message))
+                {
+                    return "valid";
+                }
+                //else condition for if condition is false then else block will execute
+                else
+                {
+                    return "invalid";
+                }
             }
-            else
+            catch (ArgumentNullException ex)
             {
-                //Console.WriteLine("Mobile number is Invalid,Please Enter Valid MObile Number format.");
-                return "invalid";
+                throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
             }
-
         }
-        //This method for validation password
-        public static string PasswordValid(string name)
-        {           
+        public string ValidPassword()
+        {
+            //Regular expression of mobile number
             //Regular expression of password
             //Rule 1 : minimum 8 charactors
             //Rule 2 : atleast 1 uppercase
@@ -95,19 +126,24 @@ namespace RegularExpression00
             //Rule 4 : ataleast 1 special charactor
             string password = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&*])[a-zA-Z0-9!@#$%&*]{8,}$";
             Regex regex = new Regex(password);
-
-            if (regex.IsMatch(name))
+            try
             {
-                //Console.WriteLine("Password is valid");
-                return "valid";
+                //if condition for matching pattern
+                //if condition is true then if block will execute
+                if (regex.IsMatch(message))
+                {
+                    return "valid";
+                }
+                //else condition for if condition is false then else block will execute
+                else
+                {
+                    return "invalid";
+                }
             }
-            else
+            catch (ArgumentNullException ex)
             {
-                //Console.WriteLine("Password Is Invalid,Please Enter Valid Password.");
-                return "invalid";
+                throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
             }
-
         }
     }
-    
 }

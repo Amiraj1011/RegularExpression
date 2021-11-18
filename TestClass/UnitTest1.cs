@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RegularExpression00;
+using UserRegistrationException;
 
 namespace ExceptionTest
 {
@@ -11,13 +11,13 @@ namespace ExceptionTest
         {
             //AAA method
             //Arrange
-            string name = "amir";
+            string message = " ";
             string expected = "invalid";
             //creating object of moodanalyzer class and passing message
-            //RegularExpression regularExpression = new RegularExpression(name);
+            UserException exception = new UserException(message);
 
             //Act
-            string actual = RegularExpression.FirstNameValid(name);
+            string actual = exception.ValidFirstName();
 
             //Assert
             //comparing actual and expected value
@@ -28,11 +28,13 @@ namespace ExceptionTest
         {
             //AAA method
             //Arrange
-            string lastName = " ";
+            string message = " ";
             string expected = "invalid";
-           
+            //creating object of moodanalyzer class and passing message
+            UserException exception = new UserException(message);
+
             //Act
-            string actual = RegularExpression.LastNameNameValid(lastName);
+            string actual = exception.ValidLastName();
 
             //Assert
             //comparing actual and expected value
@@ -43,38 +45,47 @@ namespace ExceptionTest
         {
             //AAA method
             //Arrange
-            string emailId = " ";
+            string message = " ";
             string expected = "invalid";
+            //creating object of moodanalyzer class and passing message
+            UserException exception = new UserException(message);
 
             //Act
-            string actual = RegularExpression.EmailValid(emailId);
+            string actual = exception.EmailIdValid();
 
             //Assert
             //comparing actual and expected value
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
         public void ValidMobileNumOfUser()
         {
             //AAA method
             //Arrange
-            string num = " ";
-            string expected = "invalid";           
+            string message = " ";
+            string expected = "invalid";
+            //creating object of moodanalyzer class and passing message
+            UserException exception = new UserException(message);
+
             //Act
-            string actual = RegularExpression.MobileNumValid(num);
+            string actual = exception.MobileNumValid();
 
             //Assert
             //comparing actual and expected value
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
         public void ValidPasswordOfUser()
         {
             //AAA method
             //Arrange
-            string password = " ";
+            string message = " ";
             string expected = "invalid";
-            
+            //creating object of moodanalyzer class and passing message
+            UserException exception = new UserException(message);
+
             //Act
-            string actual = RegularExpression.PasswordValid(password);
+            string actual = exception.ValidPassword();
 
             //Assert
             //comparing actual and expected value
