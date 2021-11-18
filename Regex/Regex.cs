@@ -16,20 +16,21 @@ namespace UserRegistrationException
         {
             this.message = message;
         }
-        /// <summary>
-        /// Valids the first name.
-        /// </summary>
-        /// <returns></returns>
-        /// <exception cref="UserRegistrationException.CustomException">invalid</exception>
+       /// <summary>
+       /// validate fist name using lambda function
+       /// </summary>
+       /// <returns></returns>
         public string ValidFirstName()
         {
-            string firstname = "^[A-Z]{1}[a-zA-Z]{2}$";
-            Regex regex = new Regex(firstname);
+            string firstNamePattern = "^[A-Z]{1}[a-zA-Z]{2}$";
+            bool testFirstName(string firstName) => (Regex.IsMatch(firstName, firstNamePattern));
+            bool result = testFirstName(message);
+            //Regex regex = new Regex(firstname);
             try
             {
                 //if condition for matching pattern
                 //if condition is true then if block will execute
-                if (regex.IsMatch(message))
+                if (result)
                 {
                     return "valid";
                 }
@@ -45,15 +46,20 @@ namespace UserRegistrationException
             }
 
         }
+        /// <summary>
+        /// validate last name using lambda function
+        /// </summary>
+        /// <returns></returns>
         public string ValidLastName()
         {
-            string lastname = "^[A-Z]{1}[a-zA-Z]{2}$";
-            Regex regex = new Regex(lastname);
+            string larstNamePattern = "^[A-Z]{1}[a-zA-Z]{2}$";
+            bool testLastName(string larstName) => (Regex.IsMatch(larstName, larstNamePattern));
+            bool result = testLastName(message);
             try
             {
                 //if condition for matching pattern
                 //if condition is true then if block will execute
-                if (regex.IsMatch(message))
+                if (result)
                 {
                     return "valid";
                 }
@@ -69,15 +75,20 @@ namespace UserRegistrationException
             }
 
         }
+        /// <summary>
+        /// validate email id using lambda function
+        /// </summary>
+        /// <returns></returns>
         public string EmailIdValid()
         {
-            string emailid = "^[a-z]{3}[.][a-z]*[@]{1}[bl]{2}[.]{1}[co]{2}[.]{1}[a-z]*$";
-            Regex regex = new Regex(emailid);
+            string emailIdPattern = "^[a-z]{3}[.][a-z]*[@]{1}[bl]{2}[.]{1}[co]{2}[.]{1}[a-z]*$";
+            bool testEmailId(string emailId) => (Regex.IsMatch(emailId, emailIdPattern));
+            bool result = testEmailId(message);
             try
             {
                 //if condition for matching pattern
                 //if condition is true then if block will execute
-                if (regex.IsMatch(message))
+                if (result)
                 {
                     return "valid";
                 }
@@ -92,16 +103,21 @@ namespace UserRegistrationException
                 throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
             }
         }
+        /// <summary>
+        /// validate mobile number using lambda function
+        /// </summary>
+        /// <returns></returns>
         public string MobileNumValid()
         {
             //Regular expression of mobile number
-            string number = "^[0-9]{1,2}[ ]{1}[0-9]{10}$";
-            Regex regex = new Regex(number);
+            string numberPattern = "^[0-9]{1,2}[ ]{1}[0-9]{10}$";
+            bool testMobNum(string mobNum) => (Regex.IsMatch(mobNum, numberPattern));
+            bool result = testMobNum(message);
             try
             {
                 //if condition for matching pattern
                 //if condition is true then if block will execute
-                if (regex.IsMatch(message))
+                if (result)
                 {
                     return "valid";
                 }
@@ -116,6 +132,10 @@ namespace UserRegistrationException
                 throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
             }
         }
+        /// <summary>
+        /// validate password using lambda function
+        /// </summary>
+        /// <returns></returns>
         public string ValidPassword()
         {
             //Regular expression of mobile number
@@ -124,13 +144,14 @@ namespace UserRegistrationException
             //Rule 2 : atleast 1 uppercase
             //Rule 3 : atleast 1 numeric number
             //Rule 4 : ataleast 1 special charactor
-            string password = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&*])[a-zA-Z0-9!@#$%&*]{8,}$";
-            Regex regex = new Regex(password);
+            string passwordPattern = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&*])[a-zA-Z0-9!@#$%&*]{8,}$";
+            bool testPassword(string password) => (Regex.IsMatch(password, passwordPattern));
+            bool result = testPassword(message);
             try
             {
                 //if condition for matching pattern
                 //if condition is true then if block will execute
-                if (regex.IsMatch(message))
+                if (result)
                 {
                     return "valid";
                 }

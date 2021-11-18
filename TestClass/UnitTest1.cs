@@ -6,6 +6,9 @@ namespace ExceptionTest
     [TestClass]
     public class UnitTest1
     {
+        /// <summary>
+        /// Valids the first name of user.
+        /// </summary>
         [TestMethod]
         public void ValidFirstNameOfUser()
         {
@@ -23,6 +26,9 @@ namespace ExceptionTest
             //comparing actual and expected value
             Assert.AreEqual(expected, actual);
         }
+        /// <summary>
+        /// Valids the last name of user.
+        /// </summary>
         [TestMethod]
         public void ValidLastNameOfUser()
         {
@@ -40,6 +46,9 @@ namespace ExceptionTest
             //comparing actual and expected value
             Assert.AreEqual(expected, actual);
         }
+        /// <summary>
+        /// Valids the email identifier of user.
+        /// </summary>
         [TestMethod]
         public void ValidEmailIdOfUser()
         {
@@ -57,6 +66,9 @@ namespace ExceptionTest
             //comparing actual and expected value
             Assert.AreEqual(expected, actual);
         }
+        /// <summary>
+        /// Valids the mobile number of user.
+        /// </summary>
         [TestMethod]
         public void ValidMobileNumOfUser()
         {
@@ -74,6 +86,9 @@ namespace ExceptionTest
             //comparing actual and expected value
             Assert.AreEqual(expected, actual);
         }
+        /// <summary>
+        /// Valids the password of user.
+        /// </summary>
         [TestMethod]
         public void ValidPasswordOfUser()
         {
